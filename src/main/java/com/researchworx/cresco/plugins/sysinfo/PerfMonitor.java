@@ -54,7 +54,7 @@ public class PerfMonitor {
         }
 
         public void run() {
-            MsgEvent tick = new MsgEvent(MsgEvent.Type.INFO, plugin.getRegion(), plugin.getAgent(), plugin.getPluginID(), "Performance Monitoring tick.");
+            MsgEvent tick = new MsgEvent(MsgEvent.Type.KPI, plugin.getRegion(), plugin.getAgent(), plugin.getPluginID(), "Performance Monitoring tick.");
             tick.setParam("src_region", plugin.getRegion());
             tick.setParam("src_agent", plugin.getAgent());
             tick.setParam("src_plugin", plugin.getPluginID());
