@@ -16,6 +16,5 @@ public class Plugin extends CPlugin {
     public void start() {
         perfMonitor = new PerfMonitor(this);
         perfMonitor.start();
-
     }
 }
