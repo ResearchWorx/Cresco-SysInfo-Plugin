@@ -101,6 +101,7 @@ public class SysInfoBuilder {
             }
         } catch (Exception e) {
             System.out.println("SysInfoBuilder : getSysInfoMap : Error : " + e.getMessage());
+            e.printStackTrace();
         }
         return ret;
     }
