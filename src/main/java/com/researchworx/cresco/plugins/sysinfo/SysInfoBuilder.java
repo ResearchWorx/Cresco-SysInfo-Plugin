@@ -27,18 +27,16 @@ public class SysInfoBuilder {
             ret.put("cpu-core-count", String.valueOf(hardwareAbstractionLayer.getProcessors().length));
             ret.put("cpu-sn", hardwareAbstractionLayer.getProcessors()[0].getSystemSerialNumber());
             ret.put("cpu-summary", hardwareAbstractionLayer.getProcessors()[0].toString());
-            String cpuIdent = hardwareAbstractionLayer.getProcessors()[0].getIdentifier();
-            if(cpuIdent != null) {
-                ret.put("cpu-ident", cpuIdent );
+            try {
+                ret.put("cpu-ident", hardwareAbstractionLayer.getProcessors()[0].getIdentifier());
             }
-            else {
+            catch (Exception ex) {
                 ret.put("cpu-ident", "unknown");
             }
-            String cpuSNIdent = hardwareAbstractionLayer.getProcessors()[0].getIdentifier();
-            if(cpuSNIdent != null) {
-                ret.put("cpu-sn-ident",cpuSNIdent);
+            try {
+                ret.put("cpu-sn-ident",hardwareAbstractionLayer.getProcessors()[0].getIdentifier());
             }
-            else {
+            catch(Exception ex) {
                 ret.put("cpu-sn-ident","unknown");
             }
 
