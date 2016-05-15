@@ -27,8 +27,20 @@ public class SysInfoBuilder {
             ret.put("cpu-core-count", String.valueOf(hardwareAbstractionLayer.getProcessors().length));
             ret.put("cpu-sn", hardwareAbstractionLayer.getProcessors()[0].getSystemSerialNumber());
             ret.put("cpu-summary", hardwareAbstractionLayer.getProcessors()[0].toString());
-            ret.put("cpu-ident", hardwareAbstractionLayer.getProcessors()[0].getIdentifier());
-            ret.put("cpu-sn-ident", hardwareAbstractionLayer.getProcessors()[0].getIdentifier());
+            String cpuIdent = hardwareAbstractionLayer.getProcessors()[0].getIdentifier();
+            if(cpuIdent != null) {
+                ret.put("cpu-ident", cpuIdent );
+            }
+            else {
+                ret.put("cpu-ident", "unknown");
+            }
+            String cpuSNIdent = hardwareAbstractionLayer.getProcessors()[0].getIdentifier();
+            if(cpuSNIdent != null) {
+                ret.put("cpu-sn-ident",cpuSNIdent);
+            }
+            else {
+                ret.put("cpu-sn-ident","unknown");
+            }
 
             ret.put("sys-uptime", FormatUtil.formatElapsedSecs(hardwareAbstractionLayer.getProcessors()[0].getSystemUptime()));
 
