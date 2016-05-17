@@ -23,6 +23,7 @@ public class SysInfoBuilder {
             SystemInfo systemInfo = new SystemInfo();
             HardwareAbstractionLayer hardwareAbstractionLayer = systemInfo.getHardware();
 
+
             ret.put("sys-os", systemInfo.getOperatingSystem().toString());
             ret.put("cpu-core-count", String.valueOf(hardwareAbstractionLayer.getProcessors().length));
             ret.put("cpu-sn", hardwareAbstractionLayer.getProcessors()[0].getSystemSerialNumber());
