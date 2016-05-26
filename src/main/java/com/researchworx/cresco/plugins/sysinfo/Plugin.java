@@ -8,6 +8,7 @@ public class Plugin extends CPlugin {
     private PerfMonitor perfMonitor;
 
     public void start() {
+        logger.info("Performance monitoring plugin initialized");
         perfMonitor = new PerfMonitor(this);
         perfMonitor.start();
     }

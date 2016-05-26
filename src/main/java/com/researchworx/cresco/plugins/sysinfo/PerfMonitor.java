@@ -7,19 +7,19 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PerfMonitor {
+class PerfMonitor {
     private CPlugin plugin;
     private SysInfoBuilder builder;
 
     private Timer timer;
     private boolean running = false;
 
-    public PerfMonitor(CPlugin plugin) {
+    PerfMonitor(CPlugin plugin) {
         this.plugin = plugin;
         builder = new SysInfoBuilder();
     }
 
-    public PerfMonitor start() {
+    PerfMonitor start() {
         if (this.running) return this;
         Long interval = plugin.getConfig().getLongParam("perftimer", 5000L);
 
@@ -35,13 +35,13 @@ public class PerfMonitor {
         return this;
     }
 
-    public PerfMonitor restart() {
+    PerfMonitor restart() {
         if (running) timer.cancel();
         running = false;
         return start();
     }
 
-    public void stop() {
+    void stop() {
         timer.cancel();
         running = false;
     }

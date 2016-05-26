@@ -12,12 +12,12 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SysInfoBuilder {
-    public SysInfoBuilder() {
+class SysInfoBuilder {
+    SysInfoBuilder() {
         System.setProperty("java.net.preferIPv4Stack", "true");
     }
 
-    public Map<String, String> getSysInfoMap() {
+    Map<String, String> getSysInfoMap() {
         Map<String, String> ret = new HashMap<>();
         try {
             SystemInfo systemInfo = new SystemInfo();
