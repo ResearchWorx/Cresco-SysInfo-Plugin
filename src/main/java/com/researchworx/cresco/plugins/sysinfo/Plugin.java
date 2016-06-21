@@ -11,6 +11,7 @@ public class Plugin extends CPlugin {
         logger.info("Performance monitoring plugin initialized");
         perfMonitor = new PerfMonitor(this);
         perfMonitor.start();
+        setExec(new Executor(this));
     }
 
     @Override
