@@ -59,8 +59,10 @@ class PerfMonitor {
             tick.setParam("src_agent", plugin.getAgent());
             tick.setParam("src_plugin", plugin.getPluginID());
             tick.setParam("dst_region", plugin.getRegion());
-            tick.setParam("resource_id","sysinfo_resource");
-            tick.setParam("inode_id","sysinfo_inode");
+            tick.setParam("resource_id",plugin.getConfig().getStringParam("resource_id","sysinfo_resource"));
+            tick.setParam("inode_id",plugin.getConfig().getStringParam("inode_id","sysinfo_inode"));
+            //tick.setParam("resource_id","sysinfo_resource");
+            //tick.setParam("inode_id","sysinfo_inode");
 
             for(Map.Entry<String, String> entry : builder.getSysInfoMap().entrySet()) {
                 tick.setParam(entry.getKey(), entry.getValue());
