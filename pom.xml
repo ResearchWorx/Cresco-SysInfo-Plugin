@@ -43,6 +43,14 @@
 			<artifactId>oshi-core</artifactId>
 			<version>${dblock.oshi.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/gov.nist.math/scimark -->
+		<dependency>
+			<groupId>gov.nist.math</groupId>
+			<artifactId>scimark</artifactId>
+			<version>2.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

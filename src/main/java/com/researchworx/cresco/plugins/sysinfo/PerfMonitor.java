@@ -10,13 +10,20 @@ import java.util.TimerTask;
 class PerfMonitor {
     private CPlugin plugin;
     private SysInfoBuilder builder;
-
+    private Benchmark bmark;
+    private BenchMetric bm;
     private Timer timer;
     private boolean running = false;
 
     PerfMonitor(CPlugin plugin) {
         this.plugin = plugin;
         builder = new SysInfoBuilder();
+        bmark = new Benchmark();
+        bm = bmark.bench();
+        //System.out.println("Benchmark Runtime: " + bm.getRunTime() + " CPU Performance: " + bm.getCPU());
+
+
+
     }
 
     PerfMonitor start() {
@@ -63,7 +70,7 @@ class PerfMonitor {
             tick.setParam("inode_id",plugin.getConfig().getStringParam("inode_id","sysinfo_inode"));
             //tick.setParam("resource_id","sysinfo_resource");
             //tick.setParam("inode_id","sysinfo_inode");
-
+            tick.setParam("benchmark_cpu_composite",String.valueOf(bm.getCPU()));
             for(Map.Entry<String, String> entry : builder.getSysInfoMap().entrySet()) {
                 tick.setParam(entry.getKey(), entry.getValue());
             }
