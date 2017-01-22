@@ -71,7 +71,7 @@ class PerfMonitor {
             tick.setParam("inode_id",plugin.getConfig().getStringParam("inode_id","sysinfo_inode"));
             //tick.setParam("resource_id","sysinfo_resource");
             //tick.setParam("inode_id","sysinfo_inode");
-            tick.setParam("benchmark_cpu_composite",String.valueOf(bm.getCPU()));
+            tick.setParam("benchmark_cpu_composite",String.valueOf((int)bm.getCPU()));
             for(Map.Entry<String, String> entry : builder.getSysInfoMap().entrySet()) {
                 tick.setParam(entry.getKey(), entry.getValue());
             }
