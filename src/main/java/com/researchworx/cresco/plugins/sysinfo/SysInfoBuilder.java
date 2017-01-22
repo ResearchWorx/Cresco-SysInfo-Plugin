@@ -98,6 +98,10 @@ class SysInfoBuilder {
             for (int cpu = 0; cpu < hardwareAbstractionLayer.getProcessors().length; cpu++)
                 procCpu.append(String.format(" %.1f%%", hardwareAbstractionLayer.getProcessors()[cpu].getProcessorCpuLoadBetweenTicks() * 100));
 
+            info.put("cpu-total-ticks", String.valueOf(totalCpu));
+            info.put("cpu-idle-ticks", String.valueOf(idle));
+
+
             info.put("cpu-user-load", String.valueOf(100d * user / totalCpu));
             info.put("cpu-nice-load", String.valueOf(100d * nice / totalCpu));
             info.put("cpu-sys-load", String.valueOf(100d * sys / totalCpu));

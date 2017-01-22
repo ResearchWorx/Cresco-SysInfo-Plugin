@@ -41,7 +41,6 @@ class PerfMonitor {
         timer.scheduleAtFixedRate(new PerfMonitorTask(plugin), 500, interval);
         return this;
 
-        //aASÅ
     }
 
     PerfMonitor restart() {
