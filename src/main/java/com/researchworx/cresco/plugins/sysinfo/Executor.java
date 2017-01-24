@@ -17,7 +17,8 @@ public class Executor extends CExecutor {
     @Override
     public MsgEvent processExec(MsgEvent msg) {
         logger.debug("Processing EXEC message {}", msg.getParams());
-        for (Map.Entry<String, String> param : SysInfoBuilder.getInfo().entrySet()) {
+        SysInfoBuilder sb = new SysInfoBuilder();
+        for (Map.Entry<String, String> param : sb.getInfo().entrySet()) {
             msg.setParam(param.getKey(), param.getValue());
         }
         return msg;
