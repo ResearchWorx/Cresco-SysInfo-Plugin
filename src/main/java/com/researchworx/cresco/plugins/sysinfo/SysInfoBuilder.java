@@ -30,7 +30,7 @@ class SysInfoBuilder {
             getOSInfo();
             getFSInfo();
             getSensorInfo();
-            getDiskInfo();
+            //getDiskInfo();
             getCPUInfo();
             getMemoryInfo();
             getNetworkInfo();
