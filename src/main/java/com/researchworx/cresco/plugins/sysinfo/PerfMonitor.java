@@ -19,7 +19,7 @@ class PerfMonitor {
         this.plugin = plugin;
         builder = new SysInfoBuilder();
         bmark = new Benchmark();
-        bm = bmark.bench();
+        //bm = bmark.bench();
         //System.out.println("Benchmark Runtime: " + bm.getRunTime() + " CPU Performance: " + bm.getCPU());
 
 
@@ -71,7 +71,9 @@ class PerfMonitor {
             tick.setParam("inode_id",plugin.getConfig().getStringParam("inode_id","sysinfo_inode"));
             //tick.setParam("resource_id","sysinfo_resource");
             //tick.setParam("inode_id","sysinfo_inode");
-            tick.setParam("benchmark_cpu_composite",String.valueOf((int)bm.getCPU()));
+            //tick.setParam("benchmark_cpu_composite",String.valueOf((int)bm.getCPU()));
+            tick.setParam("benchmark_cpu_composite","1000");
+
             for(Map.Entry<String, String> entry : builder.getSysInfoMap().entrySet()) {
                 tick.setParam(entry.getKey(), entry.getValue());
             }
