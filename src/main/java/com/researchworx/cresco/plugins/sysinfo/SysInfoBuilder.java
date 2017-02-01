@@ -237,19 +237,37 @@ class SysInfoBuilder {
     public void getCPUInfo() {
         try{
 
-            info.put("is64bit", String.valueOf(hardwareAbstractionLayer.getProcessor().isCpu64bit()));
-            //removing do to error
-            try {
 
+            try {
+                info.put("is64bit", String.valueOf(hardwareAbstractionLayer.getProcessor().isCpu64bit()));
+            }
+            catch (Exception ex) {
+                info.put("is64bit", "unknown");
+            }
+            try {
                 info.put("cpu-physical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getPhysicalProcessorCount()));
             }
             catch (Exception ex) {
                 info.put("cpu-physical-count", "1");
             }
-            info.put("cpu-logical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getLogicalProcessorCount()));
-            info.put("cpu-sn", hardwareAbstractionLayer.getProcessor().getSystemSerialNumber());
-            info.put("cpu-summary", hardwareAbstractionLayer.getProcessor().toString());
-
+            try {
+                info.put("cpu-logical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getLogicalProcessorCount()));
+            }
+            catch (Exception ex){
+                info.put("cpu-logical-count", "1");
+            }
+            try {
+                info.put("cpu-sn", hardwareAbstractionLayer.getProcessor().getSystemSerialNumber());
+            }
+            catch (Exception ex){
+                info.put("cpu-sn", "unknown");
+            }
+            try {
+                info.put("cpu-summary", hardwareAbstractionLayer.getProcessor().toString());
+            }
+            catch (Exception ex){
+                info.put("cpu-summary", "unknown");
+            }
             try {
                 info.put("cpu-ident", hardwareAbstractionLayer.getProcessor().getIdentifier());
             }
