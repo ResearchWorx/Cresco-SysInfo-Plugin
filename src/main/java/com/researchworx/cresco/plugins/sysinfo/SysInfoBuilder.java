@@ -238,7 +238,9 @@ class SysInfoBuilder {
         try{
 
             info.put("is64bit", String.valueOf(hardwareAbstractionLayer.getProcessor().isCpu64bit()));
-            info.put("cpu-physical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getPhysicalProcessorCount()));
+            //removing do to error
+            //info.put("cpu-physical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getPhysicalProcessorCount()));
+
             info.put("cpu-logical-count", String.valueOf(hardwareAbstractionLayer.getProcessor().getLogicalProcessorCount()));
             info.put("cpu-sn", hardwareAbstractionLayer.getProcessor().getSystemSerialNumber());
             info.put("cpu-summary", hardwareAbstractionLayer.getProcessor().toString());
