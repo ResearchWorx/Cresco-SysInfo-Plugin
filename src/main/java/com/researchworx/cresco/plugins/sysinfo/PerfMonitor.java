@@ -19,7 +19,7 @@ class PerfMonitor {
         this.plugin = plugin;
         builder = new SysInfoBuilder();
         bmark = new Benchmark();
-        //bm = bmark.bench();
+        bm = bmark.bench();
         //System.out.println("Benchmark Runtime: " + bm.getRunTime() + " CPU Performance: " + bm.getCPU());
 
 
