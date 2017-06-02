@@ -29,8 +29,8 @@ class SysInfoBuilder {
 
             getOSInfo();
             getFSInfo();
-            //getSensorInfo();
-            //getDiskInfo();
+            getSensorInfo();
+            getDiskInfo();
             getCPUInfo();
             getMemoryInfo();
             getNetworkInfo();
@@ -59,11 +59,14 @@ class SysInfoBuilder {
         */
     }
 
+
     public void getFSInfo() {
         try{
             int fsCount = 0;
             StringBuilder fsStringBuilder = new StringBuilder();
-            OSFileStore[] fsArray = hardwareAbstractionLayer.getFileSystem().getFileStores();
+
+            //OSFileStore[] fsArray = hardwareAbstractionLayer.getFileSystem().getFileStores();
+            OSFileStore[] fsArray = os.getFileSystem().getFileStores();
             for (OSFileStore fs : fsArray) {
                 fsStringBuilder.append(String.valueOf(fsCount)).append(":").append(fs.getName()).append(",");
                 long usable = fs.getUsableSpace();
