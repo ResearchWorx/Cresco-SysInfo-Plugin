@@ -15,7 +15,9 @@ public class Plugin extends CPlugin {
     }
 
     @Override
-    public void cleanUp() {
+    public void preShutdown() {
         perfMonitor.stop();
     }
+
+
 }
