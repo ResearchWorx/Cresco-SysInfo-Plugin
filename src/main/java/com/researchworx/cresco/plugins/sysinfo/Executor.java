@@ -18,9 +18,13 @@ public class Executor extends CExecutor {
     public MsgEvent processExec(MsgEvent msg) {
         logger.debug("Processing EXEC message {}", msg.getParams());
         SysInfoBuilder sb = new SysInfoBuilder();
+        msg.setCompressedParam("perf",sb.getSysInfoMap());
+
+        /*
         for (Map.Entry<String, String> param : sb.getInfo().entrySet()) {
             msg.setParam(param.getKey(), param.getValue());
         }
+        */
         return msg;
     }
 }

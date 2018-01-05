@@ -74,9 +74,12 @@ class PerfMonitor {
                 tick.setParam("benchmark_cpu_composite",String.valueOf((int)bm.getCPU()));
             }
 
+            tick.setCompressedParam("perf",builder.getSysInfoMap());
+            /*
             for(Map.Entry<String, String> entry : builder.getSysInfoMap().entrySet()) {
                 tick.setParam(entry.getKey(), entry.getValue());
             }
+            */
 
             plugin.sendMsgEvent(tick);
         }
