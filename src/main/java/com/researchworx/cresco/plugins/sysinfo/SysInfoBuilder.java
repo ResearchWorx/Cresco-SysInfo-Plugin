@@ -182,6 +182,7 @@ class SysInfoBuilder {
             HWDiskStore[] diskArray = hardwareAbstractionLayer.getDiskStores();
             for (HWDiskStore disk : diskArray) {
                 Map<String,String> info = new HashMap<>();
+
                 info.put("disk-size", String.valueOf(disk.getSize()));
                 info.put("disk-model", String.valueOf(disk.getModel()));
                 info.put("disk-name", String.valueOf(disk.getName()));
@@ -253,12 +254,6 @@ class SysInfoBuilder {
                 info.put("cpu-logical-count", "1");
             }
             try {
-                info.put("cpu-sn", hardwareAbstractionLayer.getProcessor().getSystemSerialNumber());
-            }
-            catch (Exception ex){
-                info.put("cpu-sn", "unknown");
-            }
-            try {
                 info.put("cpu-summary", hardwareAbstractionLayer.getProcessor().toString());
             }
             catch (Exception ex){
@@ -276,8 +271,6 @@ class SysInfoBuilder {
             catch(Exception ex) {
                 info.put("cpu-sn-ident","unknown");
             }
-
-
 
             //performance
             long[] prevTicks = hardwareAbstractionLayer.getProcessor().getSystemCpuLoadTicks();
