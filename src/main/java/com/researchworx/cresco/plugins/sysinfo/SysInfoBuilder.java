@@ -182,10 +182,14 @@ class SysInfoBuilder {
             HWDiskStore[] diskArray = hardwareAbstractionLayer.getDiskStores();
             for (HWDiskStore disk : diskArray) {
                 Map<String,String> info = new HashMap<>();
-
                 info.put("disk-size", String.valueOf(disk.getSize()));
                 info.put("disk-model", String.valueOf(disk.getModel()));
                 info.put("disk-name", String.valueOf(disk.getName()));
+                info.put("disk-readbytes", String.valueOf(disk.getReadBytes()));
+                info.put("disk-reads", String.valueOf(disk.getReads()));
+                info.put("disk-writebytes", String.valueOf(disk.getWriteBytes()));
+                info.put("disk-writes", String.valueOf(disk.getWrites()));
+                info.put("disk-transfertime", String.valueOf(disk.getTransferTime()));
                 list.add(info);
             }
         }
