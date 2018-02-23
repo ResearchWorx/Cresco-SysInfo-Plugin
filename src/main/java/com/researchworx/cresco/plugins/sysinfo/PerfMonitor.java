@@ -3,7 +3,6 @@ package com.researchworx.cresco.plugins.sysinfo;
 import com.researchworx.cresco.library.messaging.MsgEvent;
 import com.researchworx.cresco.library.plugin.core.CPlugin;
 
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,6 +34,10 @@ class PerfMonitor {
         initial.setParam("src_agent", plugin.getAgent());
         initial.setParam("src_plugin", plugin.getPluginID());
         initial.setParam("dst_region", plugin.getRegion());
+        initial.setParam("dst_agent", plugin.getAgent());
+        initial.setParam("dst_plugin", "plugin/0");
+        initial.setParam("is_regional",Boolean.TRUE.toString());
+        initial.setParam("is_global",Boolean.TRUE.toString());
         plugin.sendMsgEvent(initial);
 
         timer = new Timer();
@@ -67,6 +70,10 @@ class PerfMonitor {
             tick.setParam("src_agent", plugin.getAgent());
             tick.setParam("src_plugin", plugin.getPluginID());
             tick.setParam("dst_region", plugin.getRegion());
+            tick.setParam("dst_agent", plugin.getAgent());
+            tick.setParam("dst_plugin", "plugin/0");
+            tick.setParam("is_regional",Boolean.TRUE.toString());
+            tick.setParam("is_global",Boolean.TRUE.toString());
             tick.setParam("resource_id",plugin.getConfig().getStringParam("resource_id","sysinfo_resource"));
             tick.setParam("inode_id",plugin.getConfig().getStringParam("inode_id","sysinfo_inode"));
 
